@@ -20,11 +20,10 @@ public class IndexServlet extends HttpServlet {
         List<User> users = new ArrayList<>(250);
         try {
             dataObject.getAll(users);
-            users.add(new User());
             req.setAttribute("users", users);
         } catch (SQLException e) {
             req.setAttribute("error", e);
         }
-        getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/main.jsp").forward(req, resp);
     }
 }

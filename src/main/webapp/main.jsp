@@ -6,11 +6,22 @@
 </head>
 <body>
 
-<table>
+<c:if test="${error != null}">
+    <div>
+        Случилась ошибка. Нам очень жаль. Возможно, сообщение ниже прояснит ситуацию.
+    </div>
+    <div>
+        <c:out value="${error}"/>
+    </div>
+</c:if>
+
+<table width="95%">
     <caption>Список студентов</caption>
     <thead>
-    <th>Имя</th>
-    <th>Фамилия</th>
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+    </tr>
     </thead>
 
     <c:forEach items="${users}" var="userItem">
